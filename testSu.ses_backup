@@ -341,7 +341,7 @@
                                         </Types>
                                         <Binding flavour="constant">
                                           <Type>talk_volume</Type>
-                                          <Value>TALKVOLUME_TELL</Value>
+                                          <Value>TALKVOLUME_TALK</Value>
                                         </Binding>
                                       </KnowIt>
                                       <KnowIt>
