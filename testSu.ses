@@ -1,0 +1,380 @@
+<Story name="testSu" author="Andy" description="">
+  <Version>2.8</Version>
+  <Translator>Neverwinter Nights</Translator>
+  <OptionalLibraries/>
+  <GameModule>C:\NeverwinterNights\NWN\modules\Colors that Breathe.mod</GameModule>
+  <Dialogues/>
+  <StartStoryPoint library="NO LIBRARY">
+    <Name>Start</Name>
+    <Labels/>
+    <Children>
+      <Note library="ScriptEase">
+        <Name>You can&apos;t put story components in here. Add a new story point instead!</Name>
+        <Description>You can&apos;t put story components in here. Add a new story point instead!</Description>
+        <Labels/>
+      </Note>
+    </Children>
+    <Successors>
+      <StoryPoint library="NO LIBRARY">
+        <Name>susBar</Name>
+        <Labels/>
+        <Children>
+          <CauseIt>
+            <Name>When player approaches within &lt;distance&gt; distance of &lt;object&gt;</Name>
+            <Labels/>
+            <Children>
+              <KnowIt>
+                <Name>Current Active</Name>
+                <Labels/>
+                <Types>
+                  <Type>Question</Type>
+                </Types>
+                <Binding flavour="function">
+                  <ScriptIt>
+                    <Name>if current story point is active</Name>
+                    <Visible>false</Visible>
+                    <Labels/>
+                    <Children/>
+                    <CodeBlocks>
+                      <CodeBlockReference>
+                        <Name>if current story point is active</Name>
+                        <Labels/>
+                        <Parameters>
+                          <KnowIt>
+                            <Name>story point</Name>
+                            <Labels/>
+                            <Types>
+                              <Type>Story Point</Type>
+                            </Types>
+                            <Binding flavour="automatic"/>
+                          </KnowIt>
+                        </Parameters>
+                      </CodeBlockReference>
+                    </CodeBlocks>
+                  </ScriptIt>
+                </Binding>
+              </KnowIt>
+              <KnowIt>
+                <Name>The Player Character</Name>
+                <Labels/>
+                <Types>
+                  <Type>Creature</Type>
+                </Types>
+                <Binding flavour="function">
+                  <ScriptIt>
+                    <Name>The Player Character</Name>
+                    <Visible>false</Visible>
+                    <Labels>
+                      <Label></Label>
+                    </Labels>
+                    <Children/>
+                    <CodeBlocks>
+                      <CodeBlockReference>
+                        <Name>The Player Character</Name>
+                        <Labels/>
+                      </CodeBlockReference>
+                    </CodeBlocks>
+                  </ScriptIt>
+                </Binding>
+              </KnowIt>
+              <AskIt library="ScriptEase">
+                <Name>&lt;Question&gt;</Name>
+                <Labels/>
+                <Children>
+                  <StoryComponentContainer library="NO LIBRARY">
+                    <Name>Yes:</Name>
+                    <Labels/>
+                    <Children>
+                      <KnowIt>
+                        <Name>Portrait Reference</Name>
+                        <Labels/>
+                        <Types>
+                          <Type>Text</Type>
+                        </Types>
+                        <Binding flavour="function">
+                          <ScriptIt>
+                            <Name>the portrait reference of &lt;Creature&gt;</Name>
+                            <Visible>false</Visible>
+                            <Labels/>
+                            <Children/>
+                            <CodeBlocks>
+                              <CodeBlockReference>
+                                <Name>the portrait reference of &lt;Creature&gt;</Name>
+                                <Labels/>
+                                <Parameters>
+                                  <KnowIt>
+                                    <Name>Creature</Name>
+                                    <Labels/>
+                                    <Types>
+                                      <Type>Creature</Type>
+                                    </Types>
+                                    <Binding flavour="reference">
+                                      <KnowIt reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/KnowIt[2]"/>
+                                    </Binding>
+                                  </KnowIt>
+                                </Parameters>
+                              </CodeBlockReference>
+                            </CodeBlocks>
+                          </ScriptIt>
+                        </Binding>
+                      </KnowIt>
+                      <KnowIt>
+                        <Name>Texts are Equal</Name>
+                        <Labels/>
+                        <Types>
+                          <Type>Question</Type>
+                        </Types>
+                        <Binding flavour="function">
+                          <ScriptIt>
+                            <Name>if &lt;First Text&gt; equals &lt;Second Text&gt;</Name>
+                            <Visible>false</Visible>
+                            <Labels/>
+                            <Children/>
+                            <CodeBlocks>
+                              <CodeBlockReference>
+                                <Name>if &lt;First Text&gt; equals &lt;Second Text&gt;</Name>
+                                <Labels/>
+                                <Parameters>
+                                  <KnowIt>
+                                    <Name>First Text</Name>
+                                    <Labels/>
+                                    <Types>
+                                      <Type>Text</Type>
+                                    </Types>
+                                    <Binding flavour="reference">
+                                      <KnowIt reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/AskIt/Children/StoryComponentContainer/Children/KnowIt"/>
+                                    </Binding>
+                                  </KnowIt>
+                                  <KnowIt>
+                                    <Name>Second Text</Name>
+                                    <Labels/>
+                                    <Types>
+                                      <Type>Text</Type>
+                                    </Types>
+                                    <Binding flavour="constant">
+                                      <Type>Text</Type>
+                                      <Value>img021</Value>
+                                    </Binding>
+                                  </KnowIt>
+                                </Parameters>
+                              </CodeBlockReference>
+                            </CodeBlocks>
+                          </ScriptIt>
+                        </Binding>
+                      </KnowIt>
+                      <ScriptIt>
+                        <Name>&lt;Speaker&gt; speaks &lt;Text&gt; at &lt;Volume&gt; volume</Name>
+                        <Labels>
+                          <Label>TODO</Label>
+                        </Labels>
+                        <Children/>
+                        <CodeBlocks>
+                          <CodeBlockReference>
+                            <Name>&lt;Speaker&gt; speaks &lt;Text&gt; at &lt;Volume&gt; volume</Name>
+                            <Labels/>
+                            <Parameters>
+                              <KnowIt>
+                                <Name>Speaker</Name>
+                                <Labels/>
+                                <Types>
+                                  <Type>Creature</Type>
+                                  <Type>Placeable</Type>
+                                  <Type>Door</Type>
+                                  <Type>Item</Type>
+                                  <Type>Trigger</Type>
+                                </Types>
+                                <Binding reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/AskIt/Children/StoryComponentContainer/Children/KnowIt/Binding/ScriptIt/CodeBlocks/CodeBlockReference/Parameters/KnowIt/Binding"/>
+                              </KnowIt>
+                              <KnowIt>
+                                <Name>Volume</Name>
+                                <Labels/>
+                                <Types>
+                                  <Type>Talk Volume</Type>
+                                </Types>
+                                <Binding flavour="constant">
+                                  <Type>Talk Volume</Type>
+                                  <Value>TALKVOLUME_TALK</Value>
+                                </Binding>
+                              </KnowIt>
+                              <KnowIt>
+                                <Name>Text</Name>
+                                <Labels/>
+                                <Types>
+                                  <Type>Text</Type>
+                                </Types>
+                                <Binding reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/AskIt/Children/StoryComponentContainer/Children/KnowIt[2]/Binding/ScriptIt/CodeBlocks/CodeBlockReference/Parameters/KnowIt/Binding"/>
+                              </KnowIt>
+                            </Parameters>
+                          </CodeBlockReference>
+                        </CodeBlocks>
+                      </ScriptIt>
+                      <AskIt library="ScriptEase">
+                        <Name>&lt;Question&gt;</Name>
+                        <Labels/>
+                        <Children>
+                          <StoryComponentContainer library="NO LIBRARY">
+                            <Name>Yes:</Name>
+                            <Labels/>
+                            <Children>
+                              <ScriptIt>
+                                <Name>Set &lt;Creature&gt;&apos;s portrait to &lt;Portrait Reference&gt;</Name>
+                                <Labels>
+                                  <Label>NOW</Label>
+                                </Labels>
+                                <Children/>
+                                <CodeBlocks>
+                                  <CodeBlockReference>
+                                    <Name>Set &lt;Creature&gt;&apos;s portrait to &lt;Portrait Reference&gt;</Name>
+                                    <Labels/>
+                                    <Parameters>
+                                      <KnowIt>
+                                        <Name>Creature</Name>
+                                        <Labels/>
+                                        <Types>
+                                          <Type>Creature</Type>
+                                        </Types>
+                                        <Binding flavour="reference">
+                                          <KnowIt reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/KnowIt[2]"/>
+                                        </Binding>
+                                      </KnowIt>
+                                      <KnowIt>
+                                        <Name>Portrait Reference</Name>
+                                        <Labels/>
+                                        <Types>
+                                          <Type>Text</Type>
+                                        </Types>
+                                        <Binding flavour="constant">
+                                          <Type>Text</Type>
+                                          <Value>el_f_02</Value>
+                                        </Binding>
+                                      </KnowIt>
+                                    </Parameters>
+                                  </CodeBlockReference>
+                                </CodeBlocks>
+                              </ScriptIt>
+                            </Children>
+                          </StoryComponentContainer>
+                          <StoryComponentContainer library="NO LIBRARY">
+                            <Name>No:</Name>
+                            <Labels/>
+                            <Children>
+                              <ScriptIt>
+                                <Name>Set &lt;Creature&gt;&apos;s portrait to &lt;Portrait Reference&gt;</Name>
+                                <Labels>
+                                  <Label>NOW</Label>
+                                </Labels>
+                                <Children/>
+                                <CodeBlocks>
+                                  <CodeBlockReference>
+                                    <Name>Set &lt;Creature&gt;&apos;s portrait to &lt;Portrait Reference&gt;</Name>
+                                    <Labels/>
+                                    <Parameters>
+                                      <KnowIt>
+                                        <Name>Creature</Name>
+                                        <Labels/>
+                                        <Types>
+                                          <Type>Creature</Type>
+                                        </Types>
+                                        <Binding reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/AskIt/Children/StoryComponentContainer/Children/KnowIt/Binding/ScriptIt/CodeBlocks/CodeBlockReference/Parameters/KnowIt/Binding"/>
+                                      </KnowIt>
+                                      <KnowIt>
+                                        <Name>Portrait Reference</Name>
+                                        <Labels/>
+                                        <Types>
+                                          <Type>Text</Type>
+                                        </Types>
+                                        <Binding flavour="constant">
+                                          <Type>Text</Type>
+                                          <Value>IMG021</Value>
+                                        </Binding>
+                                      </KnowIt>
+                                    </Parameters>
+                                  </CodeBlockReference>
+                                </CodeBlocks>
+                              </ScriptIt>
+                            </Children>
+                          </StoryComponentContainer>
+                        </Children>
+                        <Condition>
+                          <KnowIt library="ScriptEase">
+                            <Name>Question</Name>
+                            <Labels/>
+                            <Types>
+                              <Type>Question</Type>
+                            </Types>
+                            <Binding flavour="reference">
+                              <KnowIt reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/AskIt/Children/StoryComponentContainer/Children/KnowIt[2]"/>
+                            </Binding>
+                          </KnowIt>
+                        </Condition>
+                      </AskIt>
+                    </Children>
+                  </StoryComponentContainer>
+                  <StoryComponentContainer library="NO LIBRARY">
+                    <Name>No:</Name>
+                    <Labels/>
+                    <Children/>
+                  </StoryComponentContainer>
+                </Children>
+                <Condition>
+                  <KnowIt library="ScriptEase">
+                    <Name>Question</Name>
+                    <Labels/>
+                    <Types>
+                      <Type>Question</Type>
+                    </Types>
+                    <Binding flavour="reference">
+                      <KnowIt reference="/Story/StartStoryPoint/Successors/StoryPoint/Children/CauseIt/Children/KnowIt"/>
+                    </Binding>
+                  </KnowIt>
+                </Condition>
+              </AskIt>
+            </Children>
+            <CodeBlocks>
+              <CodeBlockReference>
+                <Name>When player approaches within &lt;distance&gt; distance of &lt;object&gt;</Name>
+                <Labels/>
+                <Parameters>
+                  <KnowIt>
+                    <Name>subject</Name>
+                    <Labels/>
+                    <Types>
+                      <Type>Story &lt;Module&gt;</Type>
+                    </Types>
+                    <Binding flavour="automatic"/>
+                  </KnowIt>
+                  <KnowIt>
+                    <Name>distance</Name>
+                    <Labels/>
+                    <Types>
+                      <Type>Number</Type>
+                    </Types>
+                    <Binding flavour="constant">
+                      <Type>Number</Type>
+                      <Value>2.0</Value>
+                    </Binding>
+                  </KnowIt>
+                  <KnowIt>
+                    <Name>object</Name>
+                    <Labels/>
+                    <Types>
+                      <Type>Creature</Type>
+                      <Type>Placeable</Type>
+                      <Type>Item</Type>
+                      <Type>Waypoint</Type>
+                      <Type>Door</Type>
+                    </Types>
+                    <Binding flavour="resource">noblfemale001.UTC</Binding>
+                  </KnowIt>
+                </Parameters>
+              </CodeBlockReference>
+            </CodeBlocks>
+          </CauseIt>
+        </Children>
+        <Successors/>
+        <FanIn>1</FanIn>
+      </StoryPoint>
+    </Successors>
+    <FanIn>1</FanIn>
+  </StartStoryPoint>
+</Story>
