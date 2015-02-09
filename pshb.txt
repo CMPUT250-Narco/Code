@@ -1,0 +1,13 @@
+void main() {
+    float fInterval = 0.1; // number of seconds to repeat
+    int iHB = GetLocalInt(OBJECT_SELF, "iHB");
+    if (iHB) {
+        // start actual heartbeat code
+        object oPC = GetEnteringObject();
+        GetIsPC(oPC);
+        SendMessageToPC(oPC, "in portrait swap");
+        ExecuteScript("dist_check", OBJECT_SELF);
+        // end actual heartbeat code
+        DelayCommand(fInterval, AssignCommand(OBJECT_SELF, ExecuteScript("pshb", OBJECT_SELF)));
+    }
+}

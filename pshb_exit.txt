@@ -1,0 +1,12 @@
+void main() {
+    object oPC = GetExitingObject();
+    int iPop = GetLocalInt(OBJECT_SELF, "iPop");
+    if (GetIsPC(oPC)) {
+        SendMessageToPC(oPC, "You exited a trigger"); // for debugging
+        iPop--;
+        SetLocalInt(OBJECT_SELF, "iPop", iPop);
+        if (iPop < 1) {
+            SetLocalInt(OBJECT_SELF, "iHB", 0);
+        }
+    }
+}
