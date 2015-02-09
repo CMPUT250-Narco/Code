@@ -1,5 +1,5 @@
 void main() {
-    float fInterval = 2.0; // number of seconds to repeat
+    float fInterval = 0.1; // number of seconds to repeat
     int iHB = GetLocalInt(OBJECT_SELF, "iHB");
     if (iHB) {
         // start actual heartbeat code

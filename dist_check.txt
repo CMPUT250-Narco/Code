@@ -49,6 +49,7 @@ void distCheck() {
     int NumberComparison;
     int Question;
 
+    int portC = GetLocalInt(OBJECT_SELF, "portCount");
     // Variable Definitions
     StoryPoint = "entertown3";
     IsActive = IfStoryPointIsActive(StoryPoint);
@@ -69,8 +70,15 @@ void distCheck() {
         string Text_0;
         Speaker_0 = SE_AUX_GetNearestObjectByTagIncludeSelf("lamplight");
         Volume_0 = TALKVOLUME_TALK;
-        Text_0 = "too close";
-        changePortrait();
+        //Text_0 = "too close";
+        portC++;
+        Text_0 = IntToString(portC);
+        if (portC == 10) {
+            changePortrait();
+            portC = 0;
+        }
+        SetLocalInt(OBJECT_SELF, "portCount", portC);
+
         // Children
         SpeakerSpeaksTextAtVolumeVolume_0(Speaker_0, Volume_0, Text_0);
     } else {
